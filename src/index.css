@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  --color-loom: #22305a;
+  --color-loom-deep: #172040;
+  --color-madder: #a8322d;
+  --color-turmeric: #e0a526;
+  --color-cream: #f8f1e4;
+  --color-paper: #fffaf1;
+  --color-ink: #2a2420;
+  --color-muted: #6d625a;
+  --color-line: #e6dccb;
+  --color-wa: #1f9d55;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Mukta", system-ui, sans-serif;
+  --font-pa: "Baloo Paaji 2", "Mukta", sans-serif;
+}
+
+body {
+  @apply bg-paper text-ink antialiased;
+}
+
+::selection { background: var(--color-turmeric); color: var(--color-loom); }
+
+.woven-border {
+  background: repeating-linear-gradient(90deg,
+    var(--color-madder) 0 18px, var(--color-turmeric) 18px 30px,
+    var(--color-loom) 30px 48px, var(--color-cream) 48px 54px);
+}
+
+.marquee { animation: marquee 32s linear infinite; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* Placeholder textile patterns until product photos arrive */
+.pat-khes {
+  background:
+    repeating-linear-gradient(0deg, transparent 0 26px, rgba(168, 50, 45, .85) 26px 32px),
+    repeating-linear-gradient(90deg, var(--color-cream) 0 26px, var(--color-madder) 26px 32px);
+}
+.pat-durrie {
+  background:
+    linear-gradient(135deg, var(--color-loom) 25%, transparent 25%) -20px 0/40px 40px,
+    linear-gradient(225deg, var(--color-loom) 25%, transparent 25%) -20px 0/40px 40px,
+    linear-gradient(315deg, var(--color-loom) 25%, transparent 25%) 0 0/40px 40px,
+    linear-gradient(45deg, var(--color-loom) 25%, var(--color-turmeric) 25%) 0 0/40px 40px;
+}
+.pat-shawl { background: repeating-linear-gradient(45deg, #6b2b3a 0 6px, #84394a 6px 12px), #6b2b3a; }
+.pat-sheet {
+  background:
+    repeating-linear-gradient(0deg, rgba(34, 48, 90, .35) 0 10px, transparent 10px 40px),
+    repeating-linear-gradient(90deg, rgba(34, 48, 90, .35) 0 10px, transparent 10px 40px), #f3ead8;
+}
+.pat-parna {
+  background: repeating-linear-gradient(90deg,
+    #fff 0 30px, var(--color-turmeric) 30px 34px, #fff 34px 40px, var(--color-madder) 40px 44px);
+}
+.pat-dupatta {
+  background:
+    radial-gradient(circle at 50% 50%, var(--color-turmeric) 0 5px, transparent 6px) 0 0/28px 28px,
+    radial-gradient(circle at 50% 50%, #f6c75a 0 3px, transparent 4px) 14px 14px/28px 28px, var(--color-madder);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee { animation: none; }
+}
